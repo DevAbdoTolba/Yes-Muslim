@@ -1,7 +1,6 @@
 from unicodedata import name
 from flask import Flask, redirect, request, session, url_for,render_template
 import sqlite3
-from readdb import addStudent, readStudent
 from pickle import NONE
 app = Flask(__name__)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
@@ -96,13 +95,8 @@ def login():
         name = request.form['name']
         city = request.form['city']
         # connect to DB
-        con = sqlite3.connect('count.db')
-        status = addStudent(con,name, city)
-        con.close()
-        if status:
-            msg = "done"
-        else:
-            msg = ""
+        con = sqlite3.connect('count.db')        
+        con.close()        
         page = f" Hello {name}<br> Your city: {city}"  
 
         link = "<br><a href='clicker'>Go to clicker!</a>"
@@ -153,69 +147,6 @@ def allCities():
 
 
 
-
-
-
-
-
-
-
-# @app.route("/")
-# def index():
-#     link ="<a href='add_student'>go to Add student </a>"
-#     link +="<p><a href='show_student'>go to show all students </a></p>"
-#     return f"<p><h1>Hello, World!</h1> </p>" +link
-
-
-# @app.route("/add_student",methods = ["POST","GET"])
-# def add_student():
-#     if request.method == "GET":
-#         form ="""
-#         <h2>HTML Forms</h2>
-        
-#         <button><a href="login">Login</a></button>
-#         <button><a href="clicker"> Go to clicker</a></button>
-#         <form action="/add_student" method='POST'>
-#         <label for="fname">First name:</label><br>
-#         <input type="text" id="fname" name="fname" value=""><br>
-#         <label for="city">City:</label><br>
-#         <input type="text" id="city" name="city" value="city"><br><br>
-        
-        
-#         <input type="submit" value="Submit">
-#         </form> """
-#         return form  
-#     elif request.method == "POST":
-#         fname = request.form['fname']
-#         city = request.form['city']
-#         print(fname,city,)
-#         try:
-#             with sqlite3.connect("count.db") as con:  
-#                 cur = con.cursor()
-#                 add = f"INSERT INTO count (name, city) values ('{fname}','{city}')"  
-#                 cur.execute(add)   
-#                 con.commit()
-#         except Exception as e:
-#             msg=str(e) 
-#             return msg 
-#     return f"Hello {fname} " 
-
-
-# @app.route("/show_student", methods = ["GET"])
-# def show_student():
-
-#     try:
-#         with sqlite3.connect("count.db") as con:  
-#                 cur = con.cursor()
-#                 add = "SELECT * FROM count;"
-#                 data = cur.execute(add).fetchall()
-#         out ='' 
-#         for d in data:
-#             out+=f"<p>name:{d}</p>"
-#         return out
-#     except Exception as e:
-#         msg=str(e) 
-#     return msg 
 
 
 def DbConnection():
@@ -433,7 +364,7 @@ def Submitting(con):
     
 
 
-
+#Errors \(;-; )/
 #Back from any site(login, scores) repets submtion
 #intering scores before logging in, CRASH :D
 #
