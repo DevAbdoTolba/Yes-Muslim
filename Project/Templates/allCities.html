@@ -1,0 +1,63 @@
+<!DOCTYPE html>     
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <button><a href="login">Login</a></button>
+    <button><a href="clicker">Go back to counter</a></button>
+    <p style="color:black; font-family; text-decoration:none;"verdana" size="+6" ><font size="+7"><a href='/'>Yes &nbsp; muslim </a></font></p><br><br>
+    <hr>
+    <title>Cities Counts <(UwU &nbsp;&nbsp;)></title>
+
+  </head>
+  <body style="background-color:#89CFF0;">
+
+<table>
+    <tr>
+        {% for col in TableData[0] %}
+        <th>{{col}}</th>
+        {%endfor%}
+    </tr>
+    {%for rows in TableData%}
+    <tr>
+        {%for elements in rows%}
+        <td>{{rows[elements]}}</td>
+
+        {%endfor%}
+
+    </tr>
+
+    {%endfor%}
+</table>
+
+
+  <!--
+    <p>Cairo: </p>
+    <p>Alexandria: </p>
+    <p>Aswan: </p>
+    <p>Beheira: </p>
+    <p>Beni Suef: </p>
+    <p>Luxor: </p>
+    <p>Dakahlia: </p>
+    <p>Tanta: </p>
+    <p>Damietta: </p>
+    <p>Fayoum: </p>
+    <p>Gharbia: </p>
+    <p>Giza: </p>
+    <p>Ismailia: </p>
+    <p>Kafr el-Sheikh: </p>
+    <p>Matrouh: </p>
+    <p>Minya: </p>
+    <p>Menofia: </p>
+    <p>New Valley: </p>
+    <p>North Sinai: </p>
+    <p>Port Said: </p>
+    <p>Qualyubia: </p>
+    <p>Qena: </p>
+    <p>Red Sea: </p>
+    <p>Al-Sharqia: </p>
+    <p>Sohag: </p>
+    <p>South Sinai: </p>
+    <p>Suez: </p>
+-->
+  </body>
+</html>
