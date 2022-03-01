@@ -354,7 +354,7 @@ def ZeroNumbers():
     return clicks1,clicks2,clicks3,clicks4
 
 def Submitting(con):
-    Submit1 = int(request.form['TextBox1']) + int( request.form['TextBox2']) + int( request.form['TextBox3']) + int( request.form['TextBox4'])
+    Submit1 = (int(request.form['TextBox1']) + int( request.form['TextBox2']) + int( request.form['TextBox3']) + int( request.form['TextBox4'])) % 33
     Submit1+=  list(Col[0]   
             for Col in con.execute(f"SELECT Count from Count WHERE City = '{str(session.get('City',None)).strip()}'").fetchall()
             )[0]
